@@ -11,9 +11,9 @@ export class Spacings extends PureComponent {
     return (
       <Section name="Spacings" vertical>
         {Object.keys(spacings).map(spacing => (
-          <Row>
+          <Row key={spacing}>
             <Label>{spacings[spacing]} • {spacing}</Label>
-            <SpacingBox size={spacings[spacing]} key={spacing} />
+            <SpacingBox size={spacings[spacing]} />
           </Row>
         ))}
       </Section>

@@ -5,9 +5,6 @@ export const Row = styled.View`
 `;
 
 export const Label = styled.Text`
-  font-size: 10px;
-  color: dimgray;
-  margin-bottom: 5px;
 `;
 
 export const SpacingBox = styled.View`

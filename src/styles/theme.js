@@ -9,21 +9,26 @@ export const colors = {
   textSecondary: '#555253',
 };
 
+export const TEXT_TYPE = {
+  title: 'title',
+  label: 'label',
+  paragraph: 'paragraph',
+};
 
 export const typography = {
-  title: {
+  [TEXT_TYPE.title]: {
     fontFamily: 'Open Sans',
     fontSize: 30,
     lineHeight: 30,
     color: colors.textPrimary,
   },
-  paragraph: {
+  [TEXT_TYPE.paragraph]: {
     fontFamily: 'Open Sans',
     fontSize: 15,
     lineHeight: 15,
     color: colors.textSecondary,
   },
-  label: {
+  [TEXT_TYPE.label]: {
     fontFamily: 'Roboto',
     fontSize: 13,
     lineHeight: 13,

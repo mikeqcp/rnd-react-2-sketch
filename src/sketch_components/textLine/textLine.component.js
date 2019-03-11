@@ -2,19 +2,21 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import { Line } from './textLine.styles';
+import { typography } from '../../styles/theme';
 
 export class TextLine extends PureComponent {
   render() {
-    const { name, textStyle } = this.props;
+    const { type } = this.props;
+    const textStyle = typography[type];
+
     return (
-      <Line textStyle={textStyle}>
-        {name} • {textStyle.fontSize}/{textStyle.lineHeight}
+      <Line type={type}>
+        {type} • {textStyle.fontSize}/{textStyle.lineHeight}
       </Line>
     );
   }
 }
 
 TextLine.propTypes = {
-  name: PropTypes.string,
-  textStyle: PropTypes.object,
+  type: PropTypes.string,
 };

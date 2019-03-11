@@ -2,10 +2,12 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import { Text as TextComponent } from './text.styles';
+import { typography } from '../../styles/theme';
 
 export class Text extends PureComponent {
   render() {
-    const { children, textStyle, style } = this.props;
+    const { children, type, style } = this.props;
+    const textStyle = typography[type];
 
     return (
       <TextComponent textStyle={textStyle} style={style}>
@@ -17,6 +19,6 @@ export class Text extends PureComponent {
 
 Text.propTypes = {
   children: PropTypes.any,
-  textStyle: PropTypes.object,
+  type: PropTypes.string,
   style: PropTypes.any,
 };
