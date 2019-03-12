@@ -21,7 +21,7 @@ export class ResponsiveScreens extends PureComponent {
         {screenSizes.map(breakpointData => {
           const { name, width, height } = breakpointData;
           return (
-            <Container>
+            <Container key={name}>
               <Title>{name} • {width} x {height}</Title>
               <Screen style={{ width, height }}>
                 {children(breakpointData)}

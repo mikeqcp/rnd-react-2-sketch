@@ -1,9 +1,9 @@
 import styled from 'styled-components/primitives';
 
 export const Title = styled.Text`
-  font-size: 20px;
+  font-size: 40px;
   color: dimgrey;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 `;
 
 export const Container = styled.View`

@@ -18,8 +18,8 @@ export const TEXT_TYPE = {
 export const typography = {
   [TEXT_TYPE.title]: {
     fontFamily: 'Open Sans',
-    fontSize: 30,
-    lineHeight: 30,
+    fontSize: 50,
+    lineHeight: 50,
     color: colors.textPrimary,
   },
   [TEXT_TYPE.paragraph]: {
