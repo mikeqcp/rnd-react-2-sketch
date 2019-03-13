@@ -8,7 +8,7 @@ import '@babel/polyfill';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router';
 import FontFaceObserver from 'fontfaceobserver';
-import 'normalize.css/normalize.css';
+import 'css-reset-and-normalize/css/reset-and-normalize.min.css';
 import './theme/global';
 import configureStore from './modules/store';
 import UnsupportedBrowserDetection from './shared/utils/unsupportedBrowserDetection';
