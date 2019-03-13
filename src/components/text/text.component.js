@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Text as TextComponent } from './text.styles';
 import { typography } from '../../styles/theme';
 
+
 export class Text extends PureComponent {
   render() {
     const { children, type, style } = this.props;

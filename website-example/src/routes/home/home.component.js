@@ -1,22 +1,17 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
+import { Card, Hero }  from 'apptensionUniversalComponents';  // eslint-disable-line
 
-import messages from './home.messages';
+
 import { Container } from './home.styles';
 
 
 export class Home extends PureComponent {
-  static propTypes = {
-    intl: PropTypes.object.isRequired,
-  };
-
   render() {
     return (
       <Container>
-        <Helmet
-          title={this.props.intl.formatMessage(messages.pageTitle)}
-        />
+        <Hero image="https://picsum.photos/500/500?random" title="Welcome to Sketch world." />
+
+        <Card title="Hello." text="It works!" image="https://picsum.photos/200/300" />
       </Container>
     );
   }

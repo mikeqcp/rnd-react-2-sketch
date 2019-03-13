@@ -5,6 +5,7 @@ import { Image, Container, Title } from './hero.styles';
 import { TEXT_TYPE } from '../../styles/theme';
 import { Text } from '../text';
 
+
 export class Hero extends PureComponent {
   render() {
     const { image, title } = this.props;

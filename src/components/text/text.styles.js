@@ -1,6 +1,7 @@
 import styled from 'styled-components/primitives';
 import { path } from 'ramda';
 
+
 const textProp = prop => path(['textStyle', prop]);
 
 export const Text = styled.Text`

@@ -1,6 +1,7 @@
 import styled from 'styled-components/primitives';
 import { colors } from '../../styles/theme';
 
+
 export const Container = styled.View`
   width: 100%;
   max-width: 400px;

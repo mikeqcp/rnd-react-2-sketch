@@ -11,7 +11,8 @@
     "watch": "skpm-build --watch",
     "render": "skpm-build --watch --run",
     "render:once": "skpm-build --run",
-    "postinstall": "npm run build && skpm-link"
+    "postinstall": "npm run build && skpm-link",
+    "build:lib": "webpack --config ./webpack.library.config.js"
   },
   "author": "Michal Przyszczypkowski <mprzyszczypkowski@apptension.com>",
   "license": "MIT",
@@ -27,16 +28,18 @@
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
     "inquirer-directory": "^2.1.0",
-    "plop": "^2.3.0"
+    "plop": "^2.3.0",
+    "react-dom": "^16.8.4",
+    "react-native-web": "^0.11.0"
   },
   "dependencies": {
     "chroma-js": "^1.2.2",
     "prop-types": "^15.5.8",
     "ramda": "^0.26.1",
-    "react": "^16.3.2",
+    "react": "16.4.0",
     "react-primitives": "^0.6.0",
     "react-sketchapp": "^3.0.0-beta.3",
     "react-test-renderer": "^16.3.2",
-    "styled-components": "^2.1.0"
+    "styled-components": "^4.1.3"
   }
 }

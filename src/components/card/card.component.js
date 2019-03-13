@@ -5,6 +5,7 @@ import { Text } from '../text';
 import { Container, Image, Content } from './card.styles';
 import { TEXT_TYPE } from '../../styles/theme';
 
+
 export class Card extends PureComponent {
   render() {
     const { image, text, title } = this.props;
