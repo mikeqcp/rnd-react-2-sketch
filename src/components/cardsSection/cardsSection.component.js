@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Container, Content, Title, ListItem } from './cardsSection.styles';
 import { Card } from '../card';
 import { TextType } from '../../styles/theme';
+import { BreakpointContextType } from '../breakpointProvider/breakpointProvider.component';
 
 
 export class CardsSection extends PureComponent {
@@ -16,10 +17,10 @@ export class CardsSection extends PureComponent {
     return (
       <Container>
         <Title type={TextType.TITLE}>{title}</Title>
-        <Content>
+        <Content direction={this.context.smallerThan('desktop') ? 'column' : 'row'}>
           {this.cards.map((card, id) => (
-            <ListItem>
-              <Card key={id} {...card} />
+            <ListItem key={id}>
+              <Card {...card} />
             </ListItem>
           ))}
         </Content>
@@ -36,3 +37,5 @@ CardsSection.propTypes = {
 CardsSection.defaultProps = {
   cards: [],
 };
+
+CardsSection.contextType = BreakpointContextType;

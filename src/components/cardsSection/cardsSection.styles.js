@@ -1,6 +1,6 @@
 import styled from 'styled-components/primitives';
 import { Text } from '../text';
-
+import prop from 'ramda/es/prop';
 
 export const Container = styled.View`
   padding: 50px;
@@ -17,9 +17,8 @@ export const Title = styled(Text)`
 export const Content = styled.View`
   position: relative;
   width: 100%;
-  flex-direction: row;
+  flex-direction: ${prop('direction')};
   justify-content: space-around;
-  flex-wrap: wrap;
 `;
 
 export const ListItem = styled.View`

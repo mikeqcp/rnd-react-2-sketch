@@ -33,8 +33,8 @@ export const typography = {
     fontSize: 13,
     lineHeight: 13,
     color: colors.textSecondary,
-    textTransform: 'uppercase'
-  }
+    textTransform: 'uppercase',
+  },
 };
 
 export const spacings = {
