@@ -4,6 +4,7 @@ import { Container, Content, Title, ListItem } from './cardsSection.styles';
 import { Card } from '../card';
 import { TextType } from '../../styles/theme';
 import { BreakpointContextType } from '../breakpointProvider/breakpointProvider.component';
+import { Text } from '../text';
 
 
 export class CardsSection extends PureComponent {
@@ -16,7 +17,9 @@ export class CardsSection extends PureComponent {
 
     return (
       <Container>
-        <Title type={TextType.TITLE}>{title}</Title>
+        <Title>
+          <Text type={TextType.TITLE}>{title}</Text>
+        </Title>
         <Content direction={this.context.smallerThan('desktop') ? 'column' : 'row'}>
           {this.cards.map((card, id) => (
             <ListItem key={id}>

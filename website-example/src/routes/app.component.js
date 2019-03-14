@@ -1,8 +1,9 @@
 import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import { IntlProvider, FormattedMessage } from 'react-intl';
+import { BreakpointContextProvider } from 'apptensionUniversalComponents'; // eslint-disable-line
 
+import { IntlProvider, FormattedMessage } from 'react-intl';
 import { translationMessages, DEFAULT_LOCALE } from '../i18n';
 import { GlobalStyle } from '../theme/global';
 import messages from './app.messages';
@@ -38,8 +39,7 @@ export class App extends PureComponent {
         locale={this.props.language}
         messages={translationMessages[this.props.language]}
       >
-        <Fragment>
-
+        <BreakpointContextProvider>
           <FormattedMessage {...messages.pageTitle}>
             {pageTitle => (
               <Helmet
@@ -51,7 +51,7 @@ export class App extends PureComponent {
 
           <GlobalStyle />
           {React.Children.only(this.props.children)}
-        </Fragment>
+        </BreakpointContextProvider>
       </IntlProvider>
     );
   }

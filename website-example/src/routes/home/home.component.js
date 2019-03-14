@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Card, Hero }  from 'apptensionUniversalComponents';  // eslint-disable-line
+import { CardsSection, Hero, Card }  from 'apptensionUniversalComponents';  // eslint-disable-line
 
 
 import { Container } from './home.styles';
@@ -11,7 +11,26 @@ export class Home extends PureComponent {
       <Container>
         <Hero image="https://picsum.photos/500/500?random" title="Welcome to Sketch world." />
 
-        <Card title="Hello." text="It works!" image="https://picsum.photos/200/300" />
+        <CardsSection
+          title="Please see some random cards below"
+          cards={[
+            {
+              title: 'Hi Mate,',
+              text: 'Im an example card',
+              image: 'https://picsum.photos/400/400?random',
+            },
+            {
+              title: 'Hello again',
+              text: 'Im another card. YOu can see how nicely I am able to display this text. Neat!',
+              image: 'https://picsum.photos/400/400?random',
+            },
+            {
+              title: 'Yo!',
+              text: 'See me. Dont bother with them.',
+              image: 'https://picsum.photos/400/400?random',
+            }
+          ]}
+        />
       </Container>
     );
   }

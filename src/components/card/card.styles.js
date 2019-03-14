@@ -16,3 +16,7 @@ export const Image = styled.Image`
 export const Content = styled.View`
   padding: 20px;
 `;
+
+export const Paragraph = styled.View`
+  margin-top: 20px;
+`;

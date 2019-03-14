@@ -17,13 +17,13 @@ export const TextType = {
 
 export const typography = {
   [TextType.TITLE]: {
-    fontFamily: 'Open Sans',
+    fontFamily: 'Arial',
     fontSize: 50,
     lineHeight: 50,
     color: colors.textPrimary,
   },
   [TextType.PARAGRAPH]: {
-    fontFamily: 'Open Sans',
+    fontFamily: 'Roboto',
     fontSize: 15,
     lineHeight: 15,
     color: colors.textSecondary,

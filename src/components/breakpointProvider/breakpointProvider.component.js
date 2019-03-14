@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import find from 'ramda/es/find';
-import toPairs from 'ramda/src/index';
+import toPairs from 'ramda/es/toPairs';
 
 
 export const BreakpointContextType = React.createContext('desktop');
@@ -12,15 +12,22 @@ export class BreakpointContextProvider extends PureComponent {
     this.state = {
       activeBreakpoint: props.activeBreakpoint,
     };
+
+    this.handleResize = this.handleResize.bind(this);
   }
 
-  // componentDidMount() {
-  //   window.addEventListener('resize', this.handleResize);
-  // }
-  //
-  // componentWillUnmount() {
-  //   window.removeEventListener('resize', this.handleResize);
-  // }
+  componentDidMount() {
+    this.handleResize();
+    if (typeof(window) != 'undefined') {
+      window.addEventListener('resize', this.handleResize);
+    }
+  }
+
+  componentWillUnmount() {
+    if (typeof(window) != 'undefined') {
+      window.removeEventListener('resize', this.handleResize);
+    }
+  }
 
   getBreakpointForWidth(width) {
     return find(
@@ -34,18 +41,7 @@ export class BreakpointContextProvider extends PureComponent {
   }
 
   get breakpointData() {
-    return this.props.breakpoints[this.activeBreakpoint];
-  }
-
-  handleResize() {
-    if (this.props.activeBreakpoint) return;
-
-    const currentWidth = window.innerWidth;
-    const [activeBreakpoint] = this.getBreakpointForWidth(currentWidth);
-
-    if (activeBreakpoint !== this.state.activeBreakpoint) {
-      this.setState({ activeBreakpoint });
-    }
+    return this.props.breakpoints[this.activeBreakpoint] || ['unknown', [0, 9999]];
   }
 
   is(name) {
@@ -58,6 +54,17 @@ export class BreakpointContextProvider extends PureComponent {
 
   biggerThan(name) {
     return !this.is(name) && this.props.breakpoints[name][1] <= this.breakpointData[0];
+  }
+
+  handleResize() {
+    if (this.props.activeBreakpoint) return;
+
+    const currentWidth = window.innerWidth;
+    const [activeBreakpoint] = this.getBreakpointForWidth(currentWidth);
+
+    if (activeBreakpoint !== this.state.activeBreakpoint) {
+      this.setState({ activeBreakpoint });
+    }
   }
 
   render() {

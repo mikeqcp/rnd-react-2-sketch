@@ -4,7 +4,9 @@ import { render, Page } from 'react-sketchapp';
 import { Styleguide } from './pages/styleguide';
 import { Components } from './pages/components';
 
+
 const document = require('sketch/dom').getSelectedDocument();
+
 
 const findOrCreate = name => {
   const documentPage = find(propEq('name', name))(document.pages);
@@ -25,7 +27,7 @@ const pages = {
       <Page>
         <Styleguide />
       </Page>
-    )
+    ),
   },
   components: {
     host: findOrCreate('Components'),
@@ -33,7 +35,7 @@ const pages = {
       <Page>
         <Components />
       </Page>
-    )
+    ),
   },
 };
 

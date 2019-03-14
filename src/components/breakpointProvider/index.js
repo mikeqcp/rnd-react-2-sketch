@@ -1,1 +1,1 @@
-export { BreakpointContext } from './breakpointProvider.component';
+export { BreakpointContext, BreakpointContextType, BreakpointContextProvider } from './breakpointProvider.component';

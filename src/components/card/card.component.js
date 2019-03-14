@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Text } from '../text';
 
-import { Container, Image, Content } from './card.styles';
+import { Container, Image, Content, Paragraph } from './card.styles';
 import { TextType } from '../../styles/theme';
 
 
@@ -14,7 +14,9 @@ export class Card extends PureComponent {
         <Image source={image} />
         <Content>
           <Text type={TextType.TITLE}>{title}</Text>
-          <Text type={TextType.PARAGRAPH}>{text}</Text>
+          <Paragraph>
+            <Text type={TextType.PARAGRAPH}>{text}</Text>
+          </Paragraph>
         </Content>
       </Container>
     );
