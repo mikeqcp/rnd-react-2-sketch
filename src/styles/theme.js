@@ -9,26 +9,26 @@ export const colors = {
   textSecondary: '#555253',
 };
 
-export const TEXT_TYPE = {
-  title: 'title',
-  label: 'label',
-  paragraph: 'paragraph',
+export const TextType = {
+  TITLE: 'title',
+  LABEL: 'label',
+  PARAGRAPH: 'paragraph',
 };
 
 export const typography = {
-  [TEXT_TYPE.title]: {
+  [TextType.TITLE]: {
     fontFamily: 'Open Sans',
     fontSize: 50,
     lineHeight: 50,
     color: colors.textPrimary,
   },
-  [TEXT_TYPE.paragraph]: {
+  [TextType.PARAGRAPH]: {
     fontFamily: 'Open Sans',
     fontSize: 15,
     lineHeight: 15,
     color: colors.textSecondary,
   },
-  [TEXT_TYPE.label]: {
+  [TextType.LABEL]: {
     fontFamily: 'Roboto',
     fontSize: 13,
     lineHeight: 13,

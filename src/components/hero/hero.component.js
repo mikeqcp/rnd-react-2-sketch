@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import { Image, Container, Title } from './hero.styles';
-import { TEXT_TYPE } from '../../styles/theme';
+import { TextType } from '../../styles/theme';
 import { Text } from '../text';
 
 
@@ -13,7 +13,7 @@ export class Hero extends PureComponent {
       <Container>
         <Image source={image} />
         <Title>
-          <Text type={TEXT_TYPE.title}>{title}</Text>
+          <Text type={TextType.TITLE}>{title}</Text>
         </Title>
       </Container>
     );

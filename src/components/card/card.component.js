@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Text } from '../text';
 
 import { Container, Image, Content } from './card.styles';
-import { TEXT_TYPE } from '../../styles/theme';
+import { TextType } from '../../styles/theme';
 
 
 export class Card extends PureComponent {
@@ -13,8 +13,8 @@ export class Card extends PureComponent {
       <Container>
         <Image source={image} />
         <Content>
-          <Text type={TEXT_TYPE.title}>{title}</Text>
-          <Text type={TEXT_TYPE.paragraph}>{text}</Text>
+          <Text type={TextType.TITLE}>{title}</Text>
+          <Text type={TextType.PARAGRAPH}>{text}</Text>
         </Content>
       </Container>
     );
