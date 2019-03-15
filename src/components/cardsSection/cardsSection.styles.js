@@ -1,5 +1,4 @@
 import styled from 'styled-components/primitives';
-import { Text } from '../text';
 import prop from 'ramda/es/prop';
 
 
