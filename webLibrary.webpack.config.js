@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 
 
@@ -15,7 +16,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'styled-components/primitives': path.resolve(__dirname, 'src/lib-entry/styled-components-web-bridge'),
+      'styled-components/primitives': path.resolve(__dirname, 'src/web_entry/styled-components-web-bridge'),
     },
   },
   module: {
@@ -26,10 +27,15 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           query: {
-            presets: ['react'],
+            presets: ['@babel/react'],
           },
         },
       },
     ],
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      IS_WEB_TARGET: true,
+    }),
+  ],
 };

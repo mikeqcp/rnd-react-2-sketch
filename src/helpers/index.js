@@ -16,5 +16,4 @@ export const findOrCreatePage = name => {
   return page;
 };
 
-
 export const renderPages = forEachObjIndexed(({ host, content }) => render(content, host));

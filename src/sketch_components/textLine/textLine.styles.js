@@ -1,6 +1,6 @@
 import styled from 'styled-components/primitives';
-import { Text } from '../../components/text';
 
-export const Line = styled(Text)`
+
+export const Line = styled.View`
   margin-bottom: 15px;
 `;

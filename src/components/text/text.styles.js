@@ -1,13 +1,22 @@
 import styled from 'styled-components/primitives';
-import { path } from 'ramda';
+import { always, ifElse, isNil, path, pipe } from 'ramda';
+import dasherize from 'dasherize';
 
 
-const textProp = prop => path(['textStyle', prop]);
+const textProp = (prop, unit) => pipe(
+  path(['textStyle', prop]),
+  ifElse(
+    isNil,
+    always(''),
+    value => `${dasherize(prop)}: ${value}${unit || ''}`
+  )
+);
+
 
 export const Text = styled.Text`
-  font-size: ${textProp('fontSize')}px;
-  line-height: ${textProp('lineHeight')}px;
-  color: ${textProp('color')};
-  font-family: ${textProp('fontFamily')};
-  text-transform: ${textProp('textTransform')};
+  ${textProp('fontSize', 'px')};
+  ${textProp('lineHeight', 'px')};
+  ${textProp('color')};
+  ${textProp('fontFamily')};
+  ${textProp('textTransform')};
 `;

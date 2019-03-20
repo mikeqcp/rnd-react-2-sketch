@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Line } from './textLine.styles';
 import { typography } from '../../styles/theme';
+import { Text } from '../../components/text';
 
 
 export class TextLine extends PureComponent {
@@ -11,8 +12,10 @@ export class TextLine extends PureComponent {
     const textStyle = typography[type];
 
     return (
-      <Line type={type}>
-        {type} • {textStyle.fontSize}/{textStyle.lineHeight}
+      <Line>
+        <Text type={type}>
+          {type} • {textStyle.fontSize}/{textStyle.lineHeight}
+        </Text>
       </Line>
     );
   }
