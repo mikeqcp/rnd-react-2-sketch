@@ -5,6 +5,7 @@ import { Styleguide } from './pages/styleguide';
 import { Components } from './pages/components';
 
 
+// eslint-disable-next-line
 const document = require('sketch/dom').getSelectedDocument();
 
 

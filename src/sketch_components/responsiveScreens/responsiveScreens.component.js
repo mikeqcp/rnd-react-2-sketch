@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Screen, Title, Container } from './responsiveScreens.styles';
 import { BreakpointContextProvider } from '../../components/breakpointProvider/breakpointProvider.component';
 
+
 const DEFAULT_SIZES = [
   { name: 'mobile (iPhone 6/7/8)', width: 375, height: 667, breakpoint: 'mobile' },
   { name: 'tablet portrait (iPad)', width: 768, height: 1024, breakpoint: 'tablet' },

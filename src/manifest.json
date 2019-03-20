@@ -6,6 +6,16 @@
 			"name": "Apptension React-Sketch boilerplate",
 			"identifier": "main",
 			"script": "./index.js"
+		},
+		{
+			"name": "New Page template selector",
+			"identifier": "new-page-template-selector",
+			"script": "./onPageCreated.js",
+			"handlers": {
+				"actions": {
+					"NewPage.finish": "onPageCreated"
+				}
+			}
 		}
 	],
 	"menu": {

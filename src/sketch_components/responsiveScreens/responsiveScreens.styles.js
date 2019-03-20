@@ -1,8 +1,10 @@
 import styled from 'styled-components/primitives';
 
+
 export const Screen = styled.View`
   border: 1px dotted dimgray;
   align-items: center;
+  background-color: #fafafa;
 `;
 
 export const Title = styled.Text`
