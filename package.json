@@ -7,12 +7,10 @@
     "manifest": "src/manifest.json"
   },
   "scripts": {
-    "build": "skpm-build",
-    "watch": "skpm-build --watch",
     "preview": "skpm-build --watch --run",
     "render:once": "skpm-build --run",
-    "postinstall": "npm run build && skpm-link",
-    "build:lib": "webpack --config ./webpack.library.config.js"
+    "build:sketch": "skpm-build",
+    "build:web": "webpack --config ./webpack.library.config.js"
   },
   "author": "Michal Przyszczypkowski <mprzyszczypkowski@apptension.com>",
   "license": "MIT",

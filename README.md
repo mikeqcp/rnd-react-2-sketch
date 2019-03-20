@@ -1,30 +1,33 @@
 # Styled-components
 
-## How to use
-
-Download the example or [clone the repo](http://github.com/airbnb/react-sketchapp):
-
-```bash
-curl https://codeload.github.com/airbnb/react-sketchapp/tar.gz/master | tar -xz --strip=2 react-sketchapp-master/examples/styled-components
-cd styled-components
-```
-
 Install the dependencies
 
 ```bash
-npm install
+yarn install
 ```
-
-Then, open Sketch and navigate to `Plugins → react-sketchapp: Styled components`
 
 ### Run it in Sketch
 
-Run with live reloading in Sketch
+Run with live reloading in Sketch. 
+It will contain all pages within single document.
 
 ```bash
-npm run render
+yarn preview
 ```
 
-## The idea behind the example
+### Build scaffold for sketch
 
-`styled-components` allows you to write actual CSS code to style your components. It also removes the mapping between components and styles
+It will create separate document for symbols,
+and second project boilerplate document.
+
+```bash
+yarn build:sketch
+```
+
+### Build library for web
+
+It will create an UMD modular library inside `dist` folder
+
+```bash
+yarn build:web
+```
