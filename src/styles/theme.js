@@ -9,6 +9,14 @@ export const colors = {
   textSecondary: '#555253',
 };
 
+export const spacings = {
+  tiny: 2,
+  small: 5,
+  base: 23,
+  large: 40,
+  xLarge: 100,
+};
+
 export const TextType = {
   TITLE: 'title',
   LABEL: 'label',
@@ -35,12 +43,4 @@ export const typography = {
     color: colors.textSecondary,
     textTransform: 'uppercase',
   },
-};
-
-export const spacings = {
-  tiny: 2,
-  small: 5,
-  base: 23,
-  large: 40,
-  xLarge: 100,
 };

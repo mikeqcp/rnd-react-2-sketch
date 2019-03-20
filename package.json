@@ -7,15 +7,16 @@
     "manifest": "src/manifest.json"
   },
   "scripts": {
-    "preview": "skpm-build --watch --run",
-    "render:once": "skpm-build --run",
-    "build:sketch": "skpm-build",
-    "build:web": "webpack --config ./webpack.library.config.js"
+    "preview": "skpm-build --watch --run --manifest ./src/manifests/bundle.json",
+    "build:sketch": "yarn build:sketch:symbols && yarn build:sketch:boilerplate",
+    "build:sketch:symbols": "skpm-build --manifest ./src/manifests/symbols.json",
+    "build:sketch:boilerplate": "skpm-build --manifest ./src/manifests/boilerplate.json",
+    "build:web": "webpack --config ./webLibrary.webpack.config.js"
   },
   "author": "Michal Przyszczypkowski <mprzyszczypkowski@apptension.com>",
   "license": "MIT",
   "devDependencies": {
-    "@skpm/builder": "^0.4.0",
+    "@skpm/builder": "^0.5.16",
     "babel-eslint": "9.0.0",
     "eslint": "^5.15.1",
     "eslint-config-airbnb": "^17.1.0",

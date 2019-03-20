@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Line } from './textLine.styles';
 import { typography } from '../../styles/theme';
 
+
 export class TextLine extends PureComponent {
   render() {
     const { type } = this.props;

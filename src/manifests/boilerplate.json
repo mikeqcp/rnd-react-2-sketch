@@ -1,0 +1,27 @@
+{
+	"compatibleVersion": 3,
+	"bundleVersion": 1,
+	"commands": [
+		{
+			"name": "Apptension design system boilerplate",
+			"identifier": "main",
+			"script": "../sketch_entry/boilerplate.js"
+		},
+		{
+			"name": "New Page template selector",
+			"identifier": "new-page-template-selector",
+			"script": "../sketch_entry/onPageCreated.js",
+			"handlers": {
+				"actions": {
+					"NewPage.finish": "onPageCreated"
+				}
+			}
+		}
+	],
+	"menu": {
+		"isRoot": true,
+		"items": [
+			"main"
+		]
+	}
+}

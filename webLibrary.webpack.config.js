@@ -2,7 +2,7 @@ const path = require('path');
 
 
 module.exports = {
-  entry: './src/lib-entry/index.js',
+  entry: './src/web_entry/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',

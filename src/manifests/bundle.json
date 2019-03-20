@@ -3,14 +3,14 @@
 	"bundleVersion": 1,
 	"commands": [
 		{
-			"name": "Apptension React-Sketch boilerplate",
+			"name": "Apptension design system boilerplate [dev_bundle]",
 			"identifier": "main",
-			"script": "./index.js"
+			"script": "../sketch_entry/bundle.js"
 		},
 		{
 			"name": "New Page template selector",
 			"identifier": "new-page-template-selector",
-			"script": "./onPageCreated.js",
+			"script": "../sketch_entry/onPageCreated.js",
 			"handlers": {
 				"actions": {
 					"NewPage.finish": "onPageCreated"
