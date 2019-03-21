@@ -22,13 +22,20 @@
 			"identifier": "generateStyleguide",
 			"script": "../sketch_entry/generateStyleguide.js",
 			"handler": "generateStyleguide"
+		},
+		{
+			"name": "Generate Symbols Library",
+			"identifier": "generateSymbolsLibrary",
+			"script": "../sketch_entry/generateSymbolsLibrary.js",
+			"handler": "generateSymbolsLibrary"
 		}
 	],
 	"menu": {
 		"title": "Apptension design system boilerplate",
 		"items": [
 			"createPageFromTemplate",
-			"generateStyleguide"
+			"generateStyleguide",
+			"generateSymbolsLibrary"
 		]
 	}
 }
