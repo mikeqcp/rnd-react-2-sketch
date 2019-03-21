@@ -15,27 +15,10 @@ It will contain all pages within single document.
 yarn preview
 ```
 
-### Build design system boilerplate for sketch
-
-It will build sketch design system boilerplate plugin.
-It populates document with design styleguide page and provides additional features like web views templates.
-
-```bash
-yarn build:sketch:boilerplate
-```
-
-### Build sketch symbols library
-
-It will build sketch symbols collection with all components.
-You should import it as a library to your project.
-
-```bash
-yarn build:sketch:symbols
-```
 
 ### Build for sketch
 
-Will build both `build:sketch:symbols` and `build:sketch:boilerplate`
+Builds a production build for sketch plugin.
 
 ```bash
 yarn build:sketch

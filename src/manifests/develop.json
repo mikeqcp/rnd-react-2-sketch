@@ -1,0 +1,34 @@
+{
+	"name": "Apptension design system boilerplate [dev_bundle]",
+	"author": "Apptension",
+	"identifier": "com.apptension.sketch.design-boilerplate",
+	"compatibleVersion": 3,
+	"version": "0.0",
+	"icon": "./icon.png",
+	"commands": [
+		{
+			"name": "Apptension design system boilerplate [dev]",
+			"identifier": "main",
+			"script": "../sketch_entry/develop.js"
+		},
+		{
+			"name": "Page from template",
+			"identifier": "createPageFromTemplate",
+			"script": "../sketch_entry/createPageFromTemplate.js",
+			"handler": "createPageFromTemplate"
+		},
+		{
+			"name": "Generate Styleguide",
+			"identifier": "generateStyleguide",
+			"script": "../sketch_entry/generateStyleguide.js",
+			"handler": "generateStyleguide"
+		}
+	],
+	"menu": {
+		"title": "Apptension design system boilerplate [dev]",
+		"items": [
+			"createPageFromTemplate",
+			"generateStyleguide"
+		]
+	}
+}

@@ -7,10 +7,8 @@
     "manifest": "src/manifest.json"
   },
   "scripts": {
-    "preview": "skpm-build --watch --run --manifest ./src/manifests/bundle.json",
-    "build:sketch": "yarn build:sketch:symbols && yarn build:sketch:boilerplate",
-    "build:sketch:symbols": "skpm-build --manifest ./src/manifests/symbols.json",
-    "build:sketch:boilerplate": "skpm-build --manifest ./src/manifests/boilerplate.json",
+    "preview": "skpm-build --watch --run --manifest ./src/manifests/develop.json",
+    "build:sketch": "skpm-build --manifest ./src/manifests/production.json",
     "build:web": "webpack --config ./webLibrary.webpack.config.js"
   },
   "author": "Michal Przyszczypkowski <mprzyszczypkowski@apptension.com>",

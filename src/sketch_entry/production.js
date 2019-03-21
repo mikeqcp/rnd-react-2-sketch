@@ -4,15 +4,6 @@ import { Styleguide } from '../pages/styleguide';
 import { findOrCreatePage, renderPages } from '../helpers';
 
 
-const pages = {
-  styleguide: {
-    host: findOrCreatePage('Styleguide'),
-    content: (
-      <Page>
-        <Styleguide />
-      </Page>
-    ),
-  },
-};
+const pages = {};
 
 export default () => renderPages(pages);
