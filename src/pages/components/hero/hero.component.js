@@ -1,14 +1,20 @@
 import React, { PureComponent } from 'react';
 
 import { ResponsiveScreens } from '../../../sketch_components/responsiveScreens';
-import { Hero } from '../../../components/hero';
+import { Hero } from '../../../components/hero/symbols';
 
 
 export class HeroDisplay extends PureComponent {
   render() {
     return (
       <ResponsiveScreens>
-        {() => <Hero image="https://picsum.photos/300/200/?image=731" title="Page title" />}
+        {() => (
+          <Hero
+            style={{ width: '100%' }}
+            image="https://picsum.photos/300/200/?random"
+            title="Page title"
+          />
+        )}
       </ResponsiveScreens>
     );
   }

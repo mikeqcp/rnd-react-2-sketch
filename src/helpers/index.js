@@ -12,3 +12,8 @@ export const findOrCreatePage = (name, host) => {
 };
 
 export const renderPages = forEachObjIndexed(({ host, content }) => render(content, host));
+
+// eslint-disable-next-line
+export const isSketch = () => typeof (IS_WEB_TARGET) === 'undefined';
+
+export const metaProps = props => isSketch() ? props : {};

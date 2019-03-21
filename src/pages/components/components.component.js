@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import { Section } from '../../sketch_components/section';
 import { CardsSection } from './cardsSection';
 import { HeroDisplay } from './hero';
-import { VideoPlayer } from './videoPlayer';
 
 
 export class Components extends PureComponent {
@@ -14,9 +13,6 @@ export class Components extends PureComponent {
         </Section>
         <Section name="Cards Section">
           <CardsSection />
-        </Section>
-        <Section name="Video Player">
-          <VideoPlayer />
         </Section>
       </Section>
     );
