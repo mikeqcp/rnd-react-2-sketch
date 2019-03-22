@@ -17,7 +17,6 @@ const ButtonTheme = {
 
 const fromTheme = attr => props => path([props.buttonType, attr])(ButtonTheme);
 
-
 export const Button = styled.View`
   min-width: 150px;
   height: 50px;
@@ -29,4 +28,5 @@ export const Button = styled.View`
   display: flex;
   align-items: stretch;
   justify-content: center;
+  cursor: pointer;
 `;

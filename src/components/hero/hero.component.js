@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Image, Container, Title } from './hero.styles';
 import { TextType } from '../../styles/theme';
 import { Text } from '../text';
-import { sketchProps } from '../../helpers';
+import { sketchProps } from '../../helpers/rendering';
 
 
 export class Hero extends PureComponent {

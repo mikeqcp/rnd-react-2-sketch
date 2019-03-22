@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 import { Text as TextComponent } from './text.styles';
 import { typography } from '../../styles/theme';
-import { forwardStyle, isSketch } from '../../helpers';
+import { forwardStyle } from '../../helpers/rendering';
+import { isSketch } from '../../helpers';
 
 
 const textStyles = styles => ({ [isSketch() ? 'style' : 'textStyle']: styles });
