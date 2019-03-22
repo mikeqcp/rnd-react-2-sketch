@@ -8,15 +8,19 @@
   },
   "scripts": {
     "preview": "skpm-build --watch --run --manifest ./src/manifests/develop.json",
+    "test": "jest --config=jest.config.json --watch",
     "build:sketch": "skpm-build --manifest ./src/manifests/production.json",
     "build:web": "webpack --config ./webLibrary.webpack.config.js"
   },
   "author": "Michal Przyszczypkowski <mprzyszczypkowski@apptension.com>",
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
     "@babel/preset-react": "^7.0.0",
     "@skpm/builder": "^0.5.16",
     "babel-eslint": "9.0.0",
+    "babel-jest": "^24.5.0",
     "babel-loader": "^8.0.5",
     "eslint": "^5.15.1",
     "eslint-config-airbnb": "^17.1.0",
@@ -27,6 +31,7 @@
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
     "inquirer-directory": "^2.1.0",
+    "jest": "^24.5.0",
     "plop": "^2.3.0",
     "react-dom": "^16.8.4",
     "react-native-web": "^0.11.0",
