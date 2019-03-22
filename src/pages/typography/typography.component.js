@@ -4,7 +4,7 @@ import { Section } from '../../sketch_components/section';
 import { TextLine } from '../../sketch_components/textLine';
 
 export const TypographyPage = ({ textStyles }) => (
-  <Section name="Typography" vertical>
+  <Section name="Typography" isVertical>
     {Object.keys(textStyles).map(text => (
       <TextLine key={text} type={text} />
     ))}

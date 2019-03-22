@@ -3,19 +3,22 @@ import PropTypes from 'prop-types';
 
 import { Text as TextComponent } from './text.styles';
 import { typography } from '../../styles/theme';
-import { isSketch } from '../../helpers';
+import { forwardStyle, isSketch } from '../../helpers';
 
 
-const textStyles = styles => ({
-  [isSketch() ? 'style' : 'textStyle']: styles,
-});
+const textStyles = styles => ({ [isSketch() ? 'style' : 'textStyle']: styles });
 
 export class Text extends PureComponent {
   render() {
-    const { children, type, ...props } = this.props;
+    const { children, type, alignment, ...props } = this.props;
 
     return (
-      <TextComponent {...textStyles(typography[type])} {...props}>
+      <TextComponent
+        {...props}
+        alignment={alignment}
+        {...forwardStyle(props)}
+        {...textStyles(typography[type])}
+      >
         {children}
       </TextComponent>
     );
@@ -25,4 +28,5 @@ export class Text extends PureComponent {
 Text.propTypes = {
   children: PropTypes.any,
   type: PropTypes.string,
+  alignment: PropTypes.string,
 };

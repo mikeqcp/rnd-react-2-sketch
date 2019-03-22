@@ -4,7 +4,7 @@ import { ColorSwatch } from '../../sketch_components/colorSwatch';
 import { Section } from '../../sketch_components/section';
 
 export const ColorsPage = ({ colors }) => (
-  <Section name="Colors" vertical>
+  <Section name="Colors" isVertical>
     {Object.keys(colors).map(color => (
       <ColorSwatch name={color} color={colors[color]} key={color} />
     ))}

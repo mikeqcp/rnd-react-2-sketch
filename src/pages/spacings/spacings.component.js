@@ -9,7 +9,7 @@ export class Spacings extends PureComponent {
     const { spacings } = this.props;
 
     return (
-      <Section name="Spacings" vertical>
+      <Section name="Spacings" isVertical>
         {Object.keys(spacings).map(spacing => (
           <Row key={spacing}>
             <Label>{spacings[spacing]} • {spacing}</Label>

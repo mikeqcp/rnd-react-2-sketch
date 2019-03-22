@@ -4,7 +4,7 @@ import { colors } from '../../styles/theme';
 
 export const Container = styled.View`
   width: 100%;
-  max-width: 400px;
+  max-width: 350px;
   box-shadow: ${colors.textPrimary} 4px 4px 20px;
   background-color: white;
 `;

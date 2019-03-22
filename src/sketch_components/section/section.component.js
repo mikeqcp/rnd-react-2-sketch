@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 
 import { Container, Title, Content } from './section.styles';
 
+
 export class Section extends PureComponent {
   render() {
-    const { name, children, vertical } = this.props;
+    const { name, children, isVertical } = this.props;
     return (
       <Container>
         <Title>{name}</Title>
-        <Content vertical={vertical}>
+        <Content isVertical={isVertical}>
           {children}
         </Content>
       </Container>
@@ -20,5 +21,5 @@ export class Section extends PureComponent {
 Section.propTypes = {
   name: PropTypes.string,
   children: PropTypes.any,
-  vertical: PropTypes.bool,
+  isVertical: PropTypes.bool,
 };

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Image, Container, Title } from './hero.styles';
 import { TextType } from '../../styles/theme';
 import { Text } from '../text';
-import { metaProps } from '../../helpers';
+import { sketchProps } from '../../helpers';
 
 
 export class Hero extends PureComponent {
@@ -14,13 +14,13 @@ export class Hero extends PureComponent {
       <Container>
         <Image source={image} />
         <Title
-          {...metaProps({
+          {...sketchProps({
             resizingConstraint: { bottom: true, fixedHeight: true },
           })}
         >
           <Text
             type={TextType.TITLE}
-            {...metaProps({
+            {...sketchProps({
               resizingConstraint: { left: true, fixedWidth: true },
             })}
           >

@@ -1,5 +1,6 @@
 import styled from 'styled-components/primitives';
 import prop from 'ramda/es/prop';
+import { Button } from '../button';
 
 
 export const Container = styled.View`
@@ -27,4 +28,8 @@ export const ListItem = styled.View`
   flex-grow: 1;
   align-items: center;
   justify-content: center;
+`;
+
+export const SeeMoreButton = styled(Button)`
+  margin-top: 50px;
 `;

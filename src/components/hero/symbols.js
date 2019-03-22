@@ -10,5 +10,5 @@ export const Hero = makeSymbol(
       image="https://picsum.photos/300/200/?random"
     />
   ),
-  'components/player'
+  'components/hero'
 );

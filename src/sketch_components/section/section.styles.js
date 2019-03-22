@@ -8,10 +8,11 @@ export const Title = styled.Text`
 
 export const Container = styled.View`
   margin: 200px;
+  margin-bottom: 500px;
 `;
 
 export const Content = styled.View`
-  flex-direction: ${props => props.vertical ? 'column' : 'row'};
+  flex-direction: ${props => props.isVertical ? 'column' : 'row'};
   flex-wrap: wrap;
   justify-content: center;
 `;

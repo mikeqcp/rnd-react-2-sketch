@@ -1,10 +1,12 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Container, Content, Title, ListItem } from './cardsSection.styles';
-import { Card } from '../card';
+import { Container, Content, Title, ListItem, SeeMoreButton } from './cardsSection.styles';
+import { Card } from '../card/symbols';
 import { TextType } from '../../styles/theme';
 import { BreakpointContextType } from '../breakpointProvider/breakpointProvider.component';
 import { Text } from '../text';
+import { ButtonType } from '../button/types';
+import { sketchProps } from '../../helpers';
 
 
 export class CardsSection extends PureComponent {
@@ -22,11 +24,18 @@ export class CardsSection extends PureComponent {
         </Title>
         <Content direction={this.context.smallerThan('desktop') ? 'column' : 'row'}>
           {this.cards.map((card, id) => (
-            <ListItem key={id}>
+            <ListItem
+              key={id}
+              {...sketchProps({
+                resizingConstraint: { fixedHeight: true, fixedWidth: true, top: true },
+              })}
+            >
               <Card {...card} />
             </ListItem>
           ))}
         </Content>
+
+        <SeeMoreButton type={ButtonType.PRIMARY} label="Secondary" />
       </Container>
     );
   }

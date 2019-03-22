@@ -1,5 +1,5 @@
 import styled from 'styled-components/primitives';
-import { always, ifElse, isNil, path, pipe } from 'ramda';
+import { always, ifElse, isNil, path, pipe, prop } from 'ramda';
 import dasherize from 'dasherize';
 
 
@@ -14,6 +14,7 @@ const textProp = (prop, unit) => pipe(
 
 
 export const Text = styled.Text`
+  text-align: ${prop('alignment')};
   ${textProp('fontSize', 'px')};
   ${textProp('lineHeight', 'px')};
   ${textProp('color')};
