@@ -1,5 +1,6 @@
 {
   "testPathIgnorePatterns": [
     "/node_modules/", "/website-example/", "/plop/", "/dist/", "/apptension-react-sketch.sketchplugin/"
-  ]
+  ],
+  "setupFilesAfterEnv": ["<rootDir>/setupTests.js"]
 }

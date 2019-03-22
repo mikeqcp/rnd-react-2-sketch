@@ -6,13 +6,38 @@ import { TextType } from '../../styles/theme';
 import { BreakpointContextType } from '../breakpointProvider/breakpointProvider.component';
 import { Text } from '../text';
 import { ButtonType } from '../button/types';
-import { sketchProps } from '../../helpers/rendering';
+import { internalStyles, sketchProps } from '../../helpers/rendering';
 
 
 export class CardsSection extends PureComponent {
+  static propTypes = {
+    title: PropTypes.string,
+    cards: PropTypes.array,
+    styleConfig: PropTypes.object,
+  };
+
+  static defaultProps = {
+    cards: [],
+  };
+
+  static contextType = BreakpointContextType;
+
   get cards() {
     return this.props.cards.slice(0, 3);
   }
+
+  inheritStyle = internalStyles(this.props);
+
+  renderListItem = (card, id) => (
+    <ListItem
+      key={id}
+      {...sketchProps({
+        resizingConstraint: { fixedHeight: true, fixedWidth: true, top: true },
+      })}
+    >
+      <Card {...this.inheritStyle('card')} {...card} />
+    </ListItem>
+  );
 
   render() {
     const { title } = this.props;
@@ -20,34 +45,18 @@ export class CardsSection extends PureComponent {
     return (
       <Container>
         <Title>
-          <Text type={TextType.TITLE}>{title}</Text>
+          <Text {...this.inheritStyle('title')} type={TextType.TITLE}>{title}</Text>
         </Title>
         <Content direction={this.context.smallerThan('desktop') ? 'column' : 'row'}>
-          {this.cards.map((card, id) => (
-            <ListItem
-              key={id}
-              {...sketchProps({
-                resizingConstraint: { fixedHeight: true, fixedWidth: true, top: true },
-              })}
-            >
-              <Card {...card} />
-            </ListItem>
-          ))}
+          {this.cards.map(this.renderListItem)}
         </Content>
 
-        <SeeMoreButton type={ButtonType.PRIMARY} label="Secondary" />
+        <SeeMoreButton
+          {...this.inheritStyle('button')}
+          type={ButtonType.PRIMARY}
+          label="Secondary"
+        />
       </Container>
     );
   }
 }
-
-CardsSection.propTypes = {
-  title: PropTypes.string,
-  cards: PropTypes.array,
-};
-
-CardsSection.defaultProps = {
-  cards: [],
-};
-
-CardsSection.contextType = BreakpointContextType;

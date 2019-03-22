@@ -8,9 +8,9 @@ import { TextType } from '../../styles/theme';
 
 export class Card extends PureComponent {
   render() {
-    const { image, text, title } = this.props;
+    const { image, text, title, ...props } = this.props;
     return (
-      <Container>
+      <Container {...props}>
         <Image source={image} />
         <Content>
           <Text type={TextType.TITLE}>{title}</Text>

@@ -1,6 +1,7 @@
 import styled from 'styled-components/primitives';
 import { always, ifElse, isNil, path, pipe, prop } from 'ramda';
 import dasherize from 'dasherize';
+import { applyCustomStyles } from '../../helpers/rendering';
 
 
 const textProp = (prop, unit) => pipe(
@@ -20,4 +21,5 @@ export const Text = styled.Text`
   ${textProp('color')};
   ${textProp('fontFamily')};
   ${textProp('textTransform')};
+  ${applyCustomStyles};
 `;
