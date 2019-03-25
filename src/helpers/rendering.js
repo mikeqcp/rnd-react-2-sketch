@@ -1,4 +1,4 @@
-import { pathOr, propOr } from 'ramda';
+import { propOr } from 'ramda';
 import { isSketch } from './index';
 
 
@@ -10,12 +10,5 @@ export const forwardStyle = props => {
   const styleProp = isSketch() ? 'style' : 'className';
   return { [styleProp]: props[styleProp] };
 };
-
-export const internalStyles = props => styleAttr => {
-  if (isSketch()) return {};
-
-  return pathOr({}, ['styleConfig', styleAttr], props);
-};
-
 
 export const applyCustomStyles = propOr('', 'css');

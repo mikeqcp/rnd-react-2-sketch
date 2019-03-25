@@ -6,14 +6,14 @@ import { TextType } from '../../styles/theme';
 import { BreakpointContextType } from '../breakpointProvider/breakpointProvider.component';
 import { Text } from '../text';
 import { ButtonType } from '../button/types';
-import { internalStyles, sketchProps } from '../../helpers/rendering';
+import { sketchProps } from '../../helpers/rendering';
 
 
 export class CardsSection extends PureComponent {
   static propTypes = {
     title: PropTypes.string,
     cards: PropTypes.array,
-    styleConfig: PropTypes.object,
+    applyStyle: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
@@ -26,8 +26,6 @@ export class CardsSection extends PureComponent {
     return this.props.cards.slice(0, 3);
   }
 
-  inheritStyle = internalStyles(this.props);
-
   renderListItem = (card, id) => (
     <ListItem
       key={id}
@@ -35,24 +33,24 @@ export class CardsSection extends PureComponent {
         resizingConstraint: { fixedHeight: true, fixedWidth: true, top: true },
       })}
     >
-      <Card {...this.inheritStyle('card')} {...card} />
+      <Card {...this.props.applyStyle('card')} {...card} />
     </ListItem>
   );
 
   render() {
-    const { title } = this.props;
+    const { title, applyStyle } = this.props;
 
     return (
-      <Container>
+      <Container {...applyStyle()}>
         <Title>
-          <Text {...this.inheritStyle('title')} type={TextType.TITLE}>{title}</Text>
+          <Text {...applyStyle('title')} type={TextType.TITLE}>{title}</Text>
         </Title>
         <Content direction={this.context.smallerThan('desktop') ? 'column' : 'row'}>
           {this.cards.map(this.renderListItem)}
         </Content>
 
         <SeeMoreButton
-          {...this.inheritStyle('button')}
+          {...applyStyle('button')}
           type={ButtonType.PRIMARY}
           label="Secondary"
         />

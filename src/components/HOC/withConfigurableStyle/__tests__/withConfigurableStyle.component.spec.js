@@ -1,0 +1,85 @@
+import React from 'react';
+import { shallow } from 'enzyme';
+import withConfigurableStyle from '../withConfigurableStyle.component';
+import { describeWeb } from '../../../../helpers/describePatterns';
+
+
+const defaultProps = {
+  styleConfig: {
+    css: 'example css',
+    className: 'example-classname',
+    as: 'section',
+    title: {
+      as: 'h3',
+      className: 'example-title',
+
+      innerElement: {
+        className: 'innner-class',
+      },
+    },
+  },
+};
+
+const Inner = () => <span />;
+const Wrapped = withConfigurableStyle(Inner);
+const component = (props = {}) =>
+  shallow(<Wrapped {...{ ...defaultProps, ...props }} />);
+
+describe('Components/withConfigurableStyle', () => {
+  it('should render wrapped component', () => {
+    const el = component();
+    expect(el.find(Inner)).toBeDefined();
+  });
+
+  it('should pass props to rendered component', () => {
+    const props = { foo: 'foo', bar: 'bar' };
+    const el = component(props);
+    expect(el.find(Inner).props()).toMatchObject(props);
+  });
+
+  it('should pass apply prop to rendered component', () => {
+    const el = component();
+    expect(el.find(Inner).prop('applyStyle')).toBeDefined();
+  });
+
+  describe('applyStyle function', () => {
+    describeWeb(() => {
+      describe('when no parameter is provided', () => {
+        it('should extract css, classname & as properties from styleConfig', () => {
+          const el = component();
+          const extractedStyle = el.find(Inner).prop('applyStyle')();
+
+          expect(extractedStyle).toMatchObject({
+            css: 'example css',
+            className: 'example-classname',
+            as: 'section',
+          });
+        });
+      });
+
+      describe('when parameter is provided', () => {
+        it('should extract css, classname & as properties from specific property', () => {
+          const el = component();
+          const extractedStyle = el.find(Inner).prop('applyStyle')('title');
+
+          expect(extractedStyle).toMatchObject({
+            as: 'h3',
+            className: 'example-title',
+          });
+        });
+
+        it('should pass other values for specific property as styleConfig prop', () => {
+          const el = component();
+          const extractedStyle = el.find(Inner).prop('applyStyle')('title');
+
+          expect(extractedStyle.styleConfig).toMatchObject({
+            innerElement: {
+              className: 'innner-class',
+            },
+          });
+        });
+      });
+    });
+  });
+});
+

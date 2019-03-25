@@ -17,17 +17,17 @@ export class Home extends PureComponent {
             {
               title: 'Hi Mate,',
               text: 'Im an example card',
-              image: 'https://picsum.photos/400/400?random',
+              image: 'https://picsum.photos/400/400?random&1',
             },
             {
               title: 'Hello again',
               text: 'Im another card. YOu can see how nicely I am able to display this text. Neat!',
-              image: 'https://picsum.photos/400/400?random',
+              image: 'https://picsum.photos/400/400?random&2',
             },
             {
               title: 'Yo!',
               text: 'See me. Dont bother with them.',
-              image: 'https://picsum.photos/400/400?random',
+              image: 'https://picsum.photos/400/400?random&3',
             },
           ]}
           styleConfig={{
