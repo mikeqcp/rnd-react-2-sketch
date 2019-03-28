@@ -9,7 +9,7 @@ export class Home extends PureComponent {
   render() {
     return (
       <Container>
-        <Hero image="https://picsum.photos/500/500?random" title="Welcome to Sketch world." />
+        <Hero image="https://picsum.photos/500/500?random" title="Welcome to the Sketch world." />
 
         <CardsSection
           title="Please see some random cards below"
@@ -47,6 +47,9 @@ export class Home extends PureComponent {
             },
             button: {
               className: 'custom-button-class',
+              render: (props) => (
+                <a href="http://google.com" {...props}>{props.label}</a>
+              ),
             },
           }}
         />

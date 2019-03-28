@@ -1,26 +1,26 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { omit, path, pick, compose, propOr, ifElse, isNil } from 'ramda';
+import { omit, path, pick, compose, propOr, ifElse, isNil, mergeLeft, pathOr, always } from 'ramda';
 import { isSketch } from '../../../helpers';
 
 
-const STYLE_PROPS = ['css', 'as', 'className'];
+const STYLE_PROPS = ['css', 'as', 'className', 'render'];
 const STYLE_PROP_NAME = 'styleConfig';
 
-export default function(WrappedComponent) {
+export default function (WrappedComponent) {
   class WithConfigurableStyle extends PureComponent {
     static propTypes = {
       styleConfig: PropTypes.object,  // eslint-disable-line
     };
 
-    applyRootStyle = () => compose(
+    getRootStyle = () => compose(
       pick(STYLE_PROPS),
+      mergeLeft(this.props),
       propOr({}, STYLE_PROP_NAME),
     )(this.props);
 
-    applyChildStyle = styleAttr => {
-      const styleConfig = path([STYLE_PROP_NAME, styleAttr], this.props);
-      if (isSketch() || !styleConfig) return {};
+    getChildStyle = elementId => {
+      const styleConfig = pathOr({}, [STYLE_PROP_NAME, elementId], this.props);
 
       const mainProps = pick(STYLE_PROPS, styleConfig);
       const otherProps = omit(STYLE_PROPS, styleConfig);
@@ -31,17 +31,24 @@ export default function(WrappedComponent) {
       };
     };
 
-    applyStyle = selector => ifElse(
+    getStyle = selector => ifElse(
       isNil,
-      this.applyRootStyle,
-      this.applyChildStyle,
+      this.getRootStyle,
+      this.getChildStyle,
     )(selector);
+
+    applyStyle = isSketch() ? always({}) : this.getStyle;
 
     render() {
       const props = omit(['STYLE_PROP_NAME'], this.props);
 
+      const DisplayComponent = propOr(
+        WrappedComponent,
+        'render'
+      )(this.getRootStyle());
+
       return (
-        <WrappedComponent
+        <DisplayComponent
           {...props}
           applyStyle={this.applyStyle}
         />

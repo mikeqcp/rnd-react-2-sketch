@@ -1,6 +1,6 @@
 import React from 'react';
 import { ButtonType } from './types';
-import { Button as GenericButton } from './button.component';
+import { Button as GenericButton } from './button.container';
 
 
 export const PrimaryButton = props => <GenericButton type={ButtonType.PRIMARY} {...props} />;
