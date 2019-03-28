@@ -1,6 +1,7 @@
 import styled from 'styled-components/primitives';
 import prop from 'ramda/es/prop';
 import { Button } from '../button';
+import { applyCustomStyles } from '../../helpers/rendering';
 
 
 export const Container = styled.View`
@@ -9,6 +10,7 @@ export const Container = styled.View`
   text-align: center;
   justify-content: center;
   align-items: center;
+  ${applyCustomStyles};
 `;
 
 export const Title = styled.View`
