@@ -2,14 +2,18 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import { Line } from './textLine.styles';
-import { typography } from '../../styles/theme';
 import { Text } from '../../components/text';
 
 
 export class TextLine extends PureComponent {
+  static propTypes = {
+    type: PropTypes.string,
+    theme: PropTypes.object,
+  };
+
   render() {
     const { type } = this.props;
-    const textStyle = typography[type];
+    const textStyle = this.props.theme.typography[type];
 
     return (
       <Line>
@@ -20,7 +24,3 @@ export class TextLine extends PureComponent {
     );
   }
 }
-
-TextLine.propTypes = {
-  type: PropTypes.string,
-};

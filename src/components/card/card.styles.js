@@ -1,11 +1,11 @@
 import styled from 'styled-components/primitives';
-import { colors } from '../../styles/theme';
+import { fromTheme } from '../../helpers/rendering';
 
 
 export const Container = styled.View`
   width: 100%;
   max-width: 350px;
-  box-shadow: ${colors.textPrimary} 4px 4px 20px;
+  box-shadow: ${fromTheme(['colors', 'textPrimary'])} 4px 4px 20px;
   background-color: white;
 `;
 

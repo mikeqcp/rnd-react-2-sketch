@@ -47,9 +47,6 @@ export class Home extends PureComponent {
             },
             button: {
               className: 'custom-button-class',
-              render: (props) => (
-                <a href="http://google.com" {...props}>{props.label}</a>
-              ),
             },
           }}
         />

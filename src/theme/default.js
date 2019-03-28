@@ -1,3 +1,7 @@
+import { TextType } from '../components/text';
+import { ButtonType } from '../components/button/types';
+
+
 export const colors = {
   primary: '#7986cb',
   primaryLight: '#aab6fe',
@@ -15,12 +19,6 @@ export const spacings = {
   base: 23,
   large: 40,
   xLarge: 100,
-};
-
-export const TextType = {
-  TITLE: 'title',
-  LABEL: 'label',
-  PARAGRAPH: 'paragraph',
 };
 
 export const typography = {
@@ -42,5 +40,16 @@ export const typography = {
     lineHeight: 13,
     color: colors.textSecondary,
     textTransform: 'uppercase',
+  },
+};
+
+export const buttons = {
+  [ButtonType.PRIMARY]: {
+    background: 'primary',
+    border: 'primaryDark',
+  },
+  [ButtonType.SECONDARY]: {
+    background: 'secondary',
+    border: 'secondaryDark',
   },
 };

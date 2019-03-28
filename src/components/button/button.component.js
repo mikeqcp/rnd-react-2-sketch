@@ -2,9 +2,8 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import { Button as StyledButton } from './button.styles';
-import { TextType } from '../../styles/theme';
 import { forwardStyle } from '../../helpers/rendering';
-import { Text } from '../text';
+import { Text, TextType } from '../text';
 import { ButtonType } from './types';
 import { MultiplatformPropsProvider } from '../multiplatformPropsProvider';
 

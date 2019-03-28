@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import { Container } from './{{ camelCase name }}.styles';
 
 export class {{ pascalCase name }} extends PureComponent {
+  static propTypes = {
+  };
+
   render() {
     return (
       <Container>
@@ -12,6 +15,3 @@ export class {{ pascalCase name }} extends PureComponent {
     );
   }
 }
-
-{{ pascalCase name }}.propTypes = {
-};

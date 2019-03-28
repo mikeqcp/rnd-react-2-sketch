@@ -1,9 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Text } from '../text';
+import { Text, TextType } from '../text';
 
 import { Container, Image, Content, Paragraph } from './card.styles';
-import { TextType } from '../../styles/theme';
 
 
 export class Card extends PureComponent {

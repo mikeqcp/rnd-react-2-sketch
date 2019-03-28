@@ -2,9 +2,8 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Container, Content, Title, ListItem, SeeMoreButton } from './cardsSection.styles';
 import { Card } from '../card';
-import { TextType } from '../../styles/theme';
 import { BreakpointContextType } from '../breakpointProvider/breakpointProvider.component';
-import { Text } from '../text';
+import { Text, TextType } from '../text';
 import { ButtonType } from '../button/types';
 import { sketchProps } from '../../helpers/rendering';
 

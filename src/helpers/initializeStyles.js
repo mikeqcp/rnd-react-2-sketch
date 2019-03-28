@@ -1,5 +1,5 @@
 import { TextStyles } from 'react-sketchapp';
-import { typography } from '../styles/theme';
+import { typography } from '../theme/default';
 
 
 export default () => {

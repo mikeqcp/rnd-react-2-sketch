@@ -1,7 +1,7 @@
 import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import { BreakpointContextProvider } from 'apptensionUniversalComponents'; // eslint-disable-line
+import { BreakpointContextProvider, ThemeProvider, ButtonType, TextType } from 'apptensionUniversalComponents'; // eslint-disable-line
 
 import { IntlProvider, FormattedMessage } from 'react-intl';
 import { translationMessages, DEFAULT_LOCALE } from '../i18n';
@@ -35,24 +35,44 @@ export class App extends PureComponent {
     }
 
     return (
-      <IntlProvider
-        locale={this.props.language}
-        messages={translationMessages[this.props.language]}
+      <ThemeProvider theme={{
+        typography: {
+          [TextType.TITLE]: {
+            fontFamily: 'TimesNewRoman',
+            fontSize: 35,
+            color: 'red',
+          },
+        },
+        colors: {
+          custom: 'red',
+        },
+        buttons: {
+          [ButtonType.PRIMARY]: {
+            background: 'custom',
+            border: '#00962c',
+          },
+        },
+      }}
       >
-        <BreakpointContextProvider>
-          <FormattedMessage {...messages.pageTitle}>
-            {pageTitle => (
-              <Helmet
-                titleTemplate={`%s - ${pageTitle}`}
-                defaultTitle={pageTitle}
-              />
-            )}
-          </FormattedMessage>
+        <IntlProvider
+          locale={this.props.language}
+          messages={translationMessages[this.props.language]}
+        >
+          <BreakpointContextProvider>
+            <FormattedMessage {...messages.pageTitle}>
+              {pageTitle => (
+                <Helmet
+                  titleTemplate={`%s - ${pageTitle}`}
+                  defaultTitle={pageTitle}
+                />
+              )}
+            </FormattedMessage>
 
-          <GlobalStyle />
-          {React.Children.only(this.props.children)}
-        </BreakpointContextProvider>
-      </IntlProvider>
+            <GlobalStyle />
+            {React.Children.only(this.props.children)}
+          </BreakpointContextProvider>
+        </IntlProvider>
+      </ThemeProvider>
     );
   }
 }
