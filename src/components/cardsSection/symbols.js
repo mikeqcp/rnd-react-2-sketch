@@ -1,5 +1,6 @@
 import React from 'react';
-import { makeSymbol, View } from 'react-sketchapp';
+import { View } from 'react-sketchapp';
+import { makeSymbol } from '../../helpers/sketch_only';
 import { CardsSection } from './index';
 import { BreakpointContextProvider } from '../breakpointProvider';
 

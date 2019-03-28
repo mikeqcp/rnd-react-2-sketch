@@ -2,7 +2,8 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import { Image, Container, Title } from './hero.styles';
-import { Text, TextType } from '../text';
+import { Text } from '../text';
+import { TextType } from '../text/types';
 import { sketchProps } from '../../helpers/rendering';
 
 

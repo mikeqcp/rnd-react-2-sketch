@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 import { Button as StyledButton } from './button.styles';
 import { forwardStyle } from '../../helpers/rendering';
-import { Text, TextType } from '../text';
+import { Text } from '../text';
+import { TextType } from '../text/types';
 import { ButtonType } from './types';
 import { MultiplatformPropsProvider } from '../multiplatformPropsProvider';
 

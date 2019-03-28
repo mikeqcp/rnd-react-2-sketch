@@ -1,4 +1,4 @@
-import { withTheme } from 'styled-components';
+import { withTheme } from '../../components/HOC/withTheme';
 import { TextLine as TextLineComponent } from './textLine.component';
 
 

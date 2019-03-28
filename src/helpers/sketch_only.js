@@ -1,5 +1,6 @@
+import React from 'react';
 import { find, forEachObjIndexed, propEq } from 'ramda';
-import { render } from 'react-sketchapp';
+import { render, makeSymbol as makeSketchSymbol } from 'react-sketchapp';
 
 
 export const findOrCreatePage = (name, host) => {
@@ -11,3 +12,5 @@ export const findOrCreatePage = (name, host) => {
 };
 
 export const renderPages = forEachObjIndexed(({ host, content }) => render(content, host));
+
+export const makeSymbol = makeSketchSymbol;

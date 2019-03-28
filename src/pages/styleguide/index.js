@@ -1,4 +1,4 @@
-import { withTheme } from 'styled-components';
+import { withTheme } from '../HOC/withTheme';
 import { Styleguide as StyleguideComponent } from './styleguide.component';
 
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeSymbol } from 'react-sketchapp';
+import { makeSymbol } from '../../helpers/sketch_only';
 import {
   PrimaryButton as PrimaryButtonComponent,
   SecondaryButton as SecondaryButtonComponent,

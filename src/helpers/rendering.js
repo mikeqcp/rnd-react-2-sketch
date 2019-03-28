@@ -1,6 +1,21 @@
-import { propOr, path, flatten, concat, compose, identity, ifElse, curry, converge, isNil } from 'ramda';
+import {
+  propOr,
+  path,
+  flatten,
+  concat,
+  compose,
+  identity,
+  ifElse,
+  curry,
+  converge,
+  isNil,
+  assoc,
+} from 'ramda';
 import { isSketch } from './index';
+import * as defaultTheme from '../theme/default';
 
+
+const mockSketchTheme = () => isSketch() ? assoc('theme', defaultTheme) : identity;
 
 export const sketchProps = props => isSketch() ? props : {};
 
@@ -13,12 +28,19 @@ export const forwardStyle = props => {
 
 export const applyCustomStyles = propOr('', 'css');
 
-export const fromTheme = compose(
-  path,
-  flatten,
-  concat(['theme']),
-  ifElse(Array.isArray, identity, v => [v])
-);
+export const fromTheme = selector => {
+  const select = compose(
+    path,
+    flatten,
+    concat(['theme']),
+    ifElse(Array.isArray, identity, v => [v])
+  )(selector);
+
+  return compose(
+    select,
+    mockSketchTheme()
+  );
+};
 
 
 export const fromThemeWithRef = curry(
@@ -30,5 +52,6 @@ export const fromThemeWithRef = curry(
         identity,
       ]
     ),
-    fromTheme(attributePath)
+    fromTheme(attributePath),
+    mockSketchTheme(),
   )(props));

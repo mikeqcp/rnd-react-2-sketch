@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Text, TextType } from '../text';
+import { Text } from '../text';
+import { TextType } from '../text/types';
 
 import { Container, Image, Content, Paragraph } from './card.styles';
 

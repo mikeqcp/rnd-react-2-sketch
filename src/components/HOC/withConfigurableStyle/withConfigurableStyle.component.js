@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { omit, path, pick, compose, propOr, ifElse, isNil, mergeLeft, pathOr, always } from 'ramda';
+import { omit, pick, compose, propOr, ifElse, isNil, mergeLeft, pathOr, always } from 'ramda';
 import { isSketch } from '../../../helpers';
 
 

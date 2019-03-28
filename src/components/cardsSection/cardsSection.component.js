@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { Container, Content, Title, ListItem, SeeMoreButton } from './cardsSection.styles';
 import { Card } from '../card';
 import { BreakpointContextType } from '../breakpointProvider/breakpointProvider.component';
-import { Text, TextType } from '../text';
+import { Text } from '../text';
+import { TextType } from '../text/types';
 import { ButtonType } from '../button/types';
 import { sketchProps } from '../../helpers/rendering';
 

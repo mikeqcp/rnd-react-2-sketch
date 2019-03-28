@@ -55,54 +55,58 @@ describe('helpers/rendering/forwardStyle', () => {
 });
 
 describe('helpers/rendering/fromTheme', () => {
-  const props = {
-    theme: {
-      mainProp: 'foo',
-      colors: {
-        primary: 'red',
+  describeWeb(() => {
+    const props = {
+      theme: {
+        mainProp: 'foo',
+        colors: {
+          primary: 'red',
+        },
       },
-    },
-  };
+    };
 
-  describe('single key is provided', () => {
-    it('should return theme value', () => {
-      const result = fromTheme('mainProp')(props);
-      expect(result).toEqual('foo');
+    describe('single key is provided', () => {
+      it('should return theme value', () => {
+        const result = fromTheme('mainProp')(props);
+        expect(result).toEqual('foo');
+      });
     });
-  });
 
-  describe('path array of keys is provided', () => {
-    it('should return nested theme value', () => {
-      const result = fromTheme(['colors', 'primary'])(props);
-      expect(result).toEqual('red');
+    describe('path array of keys is provided', () => {
+      it('should return nested theme value', () => {
+        const result = fromTheme(['colors', 'primary'])(props);
+        expect(result).toEqual('red');
+      });
     });
   });
 });
 
 describe('helpers/rendering/fromThemeWithRef', () => {
-  const props = {
-    theme: {
-      colors: {
-        primary: 'red',
+  describeWeb(() => {
+    const props = {
+      theme: {
+        colors: {
+          primary: 'red',
+        },
+        buttons: {
+          colorRef: 'primary',
+          colorString: '#fafafa',
+        },
       },
-      buttons: {
-        colorRef: 'primary',
-        colorString: '#fafafa',
-      },
-    },
-  };
+    };
 
-  describe('when referenced value exists', () => {
-    it('should return referenced value', () => {
-      const result = fromThemeWithRef(['buttons', 'colorRef'], 'colors')(props);
-      expect(result).toEqual('red');
+    describe('when referenced value exists', () => {
+      it('should return referenced value', () => {
+        const result = fromThemeWithRef(['buttons', 'colorRef'], 'colors')(props);
+        expect(result).toEqual('red');
+      });
     });
-  });
 
-  describe('when referenced value doesnt exist', () => {
-    it('should return the selected value', () => {
-      const result = fromThemeWithRef(['buttons', 'colorString'], 'colors')(props);
-      expect(result).toEqual('#fafafa');
+    describe('when referenced value doesnt exist', () => {
+      it('should return the selected value', () => {
+        const result = fromThemeWithRef(['buttons', 'colorString'], 'colors')(props);
+        expect(result).toEqual('#fafafa');
+      });
     });
   });
 });

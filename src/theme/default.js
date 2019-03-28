@@ -1,4 +1,4 @@
-import { TextType } from '../components/text';
+import { TextType } from '../components/text/types';
 import { ButtonType } from '../components/button/types';
 
 

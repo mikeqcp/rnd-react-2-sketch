@@ -1,11 +1,5 @@
-import { withTheme } from 'styled-components';
 import { Text as TextComponent } from './text.component';
+import { withTheme } from '../HOC/withTheme';
 
-
-export const TextType = {
-  TITLE: 'title',
-  LABEL: 'label',
-  PARAGRAPH: 'paragraph',
-};
 
 export const Text = withTheme(TextComponent);
