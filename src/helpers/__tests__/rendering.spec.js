@@ -54,59 +54,74 @@ describe('helpers/rendering/forwardStyle', () => {
   });
 });
 
+const MOCK_THEME = {
+  mainProp: 'foo',
+  colors: {
+    primary: 'red',
+  },
+  buttons: {
+    colorRef: 'primary',
+    colorString: '#fafafa',
+  },
+};
+
+jest.mock('../../theme/default', () => ({
+  mainProp: 'foo',
+  colors: {
+    primary: 'red',
+  },
+  buttons: {
+    colorRef: 'primary',
+    colorString: '#fafafa',
+  },
+}));
+
 describe('helpers/rendering/fromTheme', () => {
-  describeWeb(() => {
-    const props = {
-      theme: {
-        mainProp: 'foo',
-        colors: {
-          primary: 'red',
-        },
-      },
-    };
+  const props = { theme: MOCK_THEME };
 
-    describe('single key is provided', () => {
-      it('should return theme value', () => {
-        const result = fromTheme('mainProp')(props);
-        expect(result).toEqual('foo');
-      });
+  describe('single key is provided', () => {
+    it('should return theme value', () => {
+      const result = fromTheme('mainProp')(props);
+      expect(result).toEqual('foo');
     });
+  });
 
-    describe('path array of keys is provided', () => {
-      it('should return nested theme value', () => {
-        const result = fromTheme(['colors', 'primary'])(props);
-        expect(result).toEqual('red');
-      });
+  describe('path array of keys is provided', () => {
+    it('should return nested theme value', () => {
+      const result = fromTheme(['colors', 'primary'])(props);
+      expect(result).toEqual('red');
+    });
+  });
+
+  describe('theme is undefined in props', () => {
+    it('should use default theme', () => {
+      const result = fromTheme('mainProp')({});
+      expect(result).toEqual('foo');
     });
   });
 });
 
 describe('helpers/rendering/fromThemeWithRef', () => {
-  describeWeb(() => {
-    const props = {
-      theme: {
-        colors: {
-          primary: 'red',
-        },
-        buttons: {
-          colorRef: 'primary',
-          colorString: '#fafafa',
-        },
-      },
-    };
+  const props = { theme: MOCK_THEME };
 
-    describe('when referenced value exists', () => {
-      it('should return referenced value', () => {
-        const result = fromThemeWithRef(['buttons', 'colorRef'], 'colors')(props);
-        expect(result).toEqual('red');
-      });
+  describe('when referenced value exists', () => {
+    it('should return referenced value', () => {
+      const result = fromThemeWithRef(['buttons', 'colorRef'], 'colors')(props);
+      expect(result).toEqual('red');
     });
+  });
 
-    describe('when referenced value doesnt exist', () => {
-      it('should return the selected value', () => {
-        const result = fromThemeWithRef(['buttons', 'colorString'], 'colors')(props);
-        expect(result).toEqual('#fafafa');
-      });
+  describe('when referenced value doesnt exist', () => {
+    it('should return the selected value', () => {
+      const result = fromThemeWithRef(['buttons', 'colorString'], 'colors')(props);
+      expect(result).toEqual('#fafafa');
+    });
+  });
+
+  describe('theme is undefined in props', () => {
+    it('should use default theme', () => {
+      const result = fromThemeWithRef(['buttons', 'colorString'], 'colors')({});
+      expect(result).toEqual('#fafafa');
     });
   });
 });

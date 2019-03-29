@@ -9,13 +9,20 @@ import {
   curry,
   converge,
   isNil,
-  assoc,
+  mergeDeepLeft, lensProp, over, always,
 } from 'ramda';
 import { isSketch } from './index';
 import * as defaultTheme from '../theme/default';
 
 
-const mockSketchTheme = () => isSketch() ? assoc('theme', defaultTheme) : identity;
+const mergeWithDefaultTheme = over(
+  lensProp('theme'),
+  ifElse(
+    isNil,
+    always(defaultTheme),
+    mergeDeepLeft(defaultTheme),
+  )
+);
 
 export const sketchProps = props => isSketch() ? props : {};
 
@@ -38,7 +45,7 @@ export const fromTheme = selector => {
 
   return compose(
     select,
-    mockSketchTheme()
+    mergeWithDefaultTheme
   );
 };
 
@@ -53,5 +60,5 @@ export const fromThemeWithRef = curry(
       ]
     ),
     fromTheme(attributePath),
-    mockSketchTheme(),
+    mergeWithDefaultTheme,
   )(props));
